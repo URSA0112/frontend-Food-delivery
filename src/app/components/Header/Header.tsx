@@ -13,7 +13,7 @@ export default function Header() {
 
 
     return (
-        <header className="bg-white dark:bg-black flex flex-wrap items-center p-4 min-w-[437px] relative shadow-xl dark:shadow-orange-600 ">
+        <header className="bg-white dark:bg-black flex flex-wrap items-center p-4 relative shadow-xl dark:shadow-orange-600 ">
 
             <div className='xl:ml-8'>
                 <Logo></Logo>

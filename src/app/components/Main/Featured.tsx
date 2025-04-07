@@ -16,7 +16,7 @@ export default function FeaturedItems() {
         }
     };
     return (
-        <section className="flex bg-gray-100 w-full min-h-50 h-[550px] items-center ">
+        <section className="flex bg-gray-100 w-full min-h-50 h-[550px] items-center relative">
             <button
                 onClick={scrollLeft}
                 className="absolute z-20 left-4 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-900 shadow-xl rounded-full p-3 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
@@ -24,7 +24,8 @@ export default function FeaturedItems() {
                 <ChevronLeft size={15} className="text-black dark:text-white" />
             </button>
 
-            <div className="flex overflow-x-scroll scroll-smooth  snap-x snap-mandatory w-full"
+            <div className="flex overflow-x-scroll scroll-smooth  snap-x snap-mandatory w-full
+      "
                 ref={carouselRef}>
                 <img src="offer1.png" alt="" className="w-full object-cover h-auto snap-start aspect-video" />
                 <img src="offer2.png" alt="" className="w-full object-cover h-auto snap-start aspect-video " />
@@ -34,7 +35,7 @@ export default function FeaturedItems() {
 
             <button
                 onClick={scrollRight}
-                className="absolute z-20 right-4 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-900 shadow-xl rounded-full p-3 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+                className="absolute z-20 right-4 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-900 shadow-2xl rounded-full p-3 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
             >
                 <ChevronRight size={15} className="text-black dark:text-white" />
             </button>

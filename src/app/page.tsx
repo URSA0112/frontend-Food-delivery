@@ -7,10 +7,10 @@ import Footer from "./components/Footer/Footer";
 
 export default function Home() {
   return (
-    <>
+    <div className="min-w-[400px] ">
       <Header></Header>
       <MainBody></MainBody>
       <Footer></Footer>
-    </>
+    </div>
   );
 }

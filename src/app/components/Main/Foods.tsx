@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/themebutton"
 
 export default function Foods() {
     return (
-        <section className=" w-full h-auto">
+        <section className=" w-full h-auto shadow-orange-600 shadow-lg p-5 mt-10  ">
 
             <h1>Category</h1>
 
@@ -51,6 +51,7 @@ export default function Foods() {
                             <CardTitle>Food Name</CardTitle>
                             <CardDescription>Decribtion</CardDescription>
                         </CardHeader>
+                        
                     </Card>
             </div>
         </section>

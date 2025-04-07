@@ -37,7 +37,7 @@ export default function Categories() {
                         return (
                             <button
                                 key={category}
-                                className={`px-6 py-2 rounded-full font-semibold text-sm transition-all duration-300 transform 
+                                className={`h-full px-6 py-2 rounded-full font-semibold text-sm transition-all duration-300 transform 
                                     ${selectedCategory === category
                                         ? 'bg-orange-500 dark:bg-orange-500 text-white scale-105 shadow-2xl'
                                         : 'text-black dark:text-white bg-transparent hover:bg-orange-400 hover:text-white hover:shadow-2xl'}`}

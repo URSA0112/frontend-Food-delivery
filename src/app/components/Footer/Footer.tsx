@@ -12,7 +12,7 @@ export default function Footer() {
   return (
     <footer className="w-full h-auto ">
       <MovingWords></MovingWords>
-      <div className="flex m-10 gap-auto justify-between ">
+      <div className="flex my-5 mx-2 gap-auto justify-between ">
         
         <Logo2></Logo2>
         <About></About>

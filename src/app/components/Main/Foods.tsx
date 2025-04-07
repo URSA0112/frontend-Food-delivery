@@ -13,7 +13,7 @@ export default function Foods() {
 
             <h1>Category</h1>
 
-            <div className="grid gap-5 grid-flow-col-dense">
+            <div className="grid gap-5 grid-rows-2 lg:grid-rows-1 grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 ">
 
                   <Card>
                         <CardContent className="p-0">
@@ -42,6 +42,26 @@ export default function Foods() {
                             <CardTitle>Food Name</CardTitle>
                             <CardDescription>Decribtion</CardDescription>
                         </CardHeader>
+                    </Card>
+                    <Card>
+                        <CardContent className="p-0">
+                            <img src="offer2.png" alt="" />
+                        </CardContent>
+                        <CardHeader>
+                            <CardTitle>Food Name</CardTitle>
+                            <CardDescription>Decribtion</CardDescription>
+                        </CardHeader>
+                        
+                    </Card>
+                    <Card>
+                        <CardContent className="p-0">
+                            <img src="offer2.png" alt="" />
+                        </CardContent>
+                        <CardHeader>
+                            <CardTitle>Food Name</CardTitle>
+                            <CardDescription>Decribtion</CardDescription>
+                        </CardHeader>
+                        
                     </Card>
                     <Card>
                         <CardContent className="p-0">

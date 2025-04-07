@@ -16,7 +16,7 @@ export default function FeaturedItems() {
         }
     };
     return (
-        <section className="flex bg-gray-100 w-full min-h-50 h-[550px] items-center relative">
+        <section className="flex bg-gray-100 w-full min-h-50 h-[350px] items-center relative">
             <button
                 onClick={scrollLeft}
                 className="absolute z-20 left-4 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-900 shadow-xl rounded-full p-3 hover:bg-gray-200 dark:hover:bg-gray-700 transition"

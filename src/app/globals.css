@@ -120,3 +120,14 @@
     @apply bg-background text-foreground;
   }
 }
+@keyframes moving{
+  0%{
+    transform: translateX(0%);
+  }
+  100%{
+    transform: translateX(-100%);
+  }
+}
+.animate-moving{
+  animation: moving 25s linear infinite;
+}

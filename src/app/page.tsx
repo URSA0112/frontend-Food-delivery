@@ -1,13 +1,18 @@
 'use client'
-import Image from "next/image";
+
 import Header from "./components/Header/Header";
+import MainBody from "./components/Main/Featured";
+import Footer from "./components/Footer/Footer";
+import Categories from "./components/Main/CategoriesList";
 
 
 export default function Home() {
   return (
-    <div>
+    <>
       <Header></Header>
-
-    </div>
+      <MainBody></MainBody>
+      <Categories></Categories>
+      <Footer></Footer>
+    </>
   );
 }

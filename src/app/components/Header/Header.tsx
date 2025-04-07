@@ -13,18 +13,18 @@ export default function Header() {
 
 
     return (
-        <header className="bg-gray-900 dark:bg-gray-800 flex flex-wrap items-center p-4 min-w-[437px] relative">
+        <header className="bg-white dark:bg-black flex flex-wrap items-center p-4 min-w-[437px] relative shadow-xl dark:shadow-orange-600 ">
 
             <div className='xl:ml-8'>
                 <Logo></Logo>
             </div>
 
-            <div id="Container right header side"
+            <nav id="Container right header side"
                 className="flex self-center items-center gap-3 sm:mt-0 mt-1 ml-5 absolute right-2 xl:right-10">
                 <Input></Input>
                 <Order></Order>
                 <User></User>
-            </div>
+            </nav>
 
         </header>
     );

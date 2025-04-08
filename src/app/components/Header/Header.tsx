@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 import Logo from './Logo';
 import Input from './Input';
-import Order from './Order';
+import Order from './OrderSidebar';
 import User from './User';
 
 

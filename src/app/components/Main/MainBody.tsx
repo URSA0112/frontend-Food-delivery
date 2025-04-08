@@ -10,7 +10,6 @@ export default function MainBody() {
             <Categories></Categories>
             <Foods></Foods>
             <Foods></Foods>
-        \
         </main>
     )
 }

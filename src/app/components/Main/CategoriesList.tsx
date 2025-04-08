@@ -19,7 +19,7 @@ export default function Categories() {
 
     return (
         <section className="px-2 py-4 bg-gray-50 dark:bg-gray-900 ">
-            <div className="relative flex items-center self-center max-w-screen-xl mx-auto  ">
+            <div className="relative flex items-center max-w-screen-xl mx-auto  ">
                 <button 
                     onClick={() => scroll(-1)}
                     className="hidden md:block z-10 p-2 bg-white dark:bg-gray-800 rounded-full shadow-md hover:scale-105 transition-transform"

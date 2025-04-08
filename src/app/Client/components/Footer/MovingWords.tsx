@@ -17,6 +17,7 @@ export default function MovingWords() {
                     <span className="text-lg mx-4">Fresh fast delivered</span>
                     <span className="text-lg mx-4">Fresh fast delivered</span>
                 </div>
-            </div></div>
+            </div>
+        </div>
     )
 }

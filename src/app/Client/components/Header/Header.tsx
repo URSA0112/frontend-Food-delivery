@@ -3,9 +3,6 @@ import Input from './Input';
 import Order from './OrderSidebar';
 import User from './User';
 
-
-
-
 export default function Header() {
 
 

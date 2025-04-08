@@ -5,7 +5,7 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
-import { Button } from "@/components/ui/themebutton"
+
 
 export default function Foods() {
     return (
@@ -53,26 +53,7 @@ export default function Foods() {
                         </CardHeader>
                         
                     </Card>
-                    <Card>
-                        <CardContent className="p-0">
-                            <img src="offer2.png" alt="" />
-                        </CardContent>
-                        <CardHeader>
-                            <CardTitle>Food Name</CardTitle>
-                            <CardDescription>Decribtion</CardDescription>
-                        </CardHeader>
-                        
-                    </Card>
-                    <Card>
-                        <CardContent className="p-0">
-                            <img src="offer2.png" alt="" />
-                        </CardContent>
-                        <CardHeader>
-                            <CardTitle>Food Name</CardTitle>
-                            <CardDescription>Decribtion</CardDescription>
-                        </CardHeader>
-                        
-                    </Card>
+               
             </div>
         </section>
     )

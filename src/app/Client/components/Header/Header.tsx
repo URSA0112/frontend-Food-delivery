@@ -1,7 +1,4 @@
-'use client'
-import React, { useState } from 'react';
-
-import Logo from './Logo';
+import Logo from './LogoX';
 import Input from './Input';
 import Order from './OrderSidebar';
 import User from './User';

@@ -1,6 +1,6 @@
 import { ToggleTheme } from "../Theme/Theme";
 
-export default function Logo() {
+export default function LogoX() {
     return (
         <div id="logo" className="flex items-center">
             <img src="logo.png" alt="Logo" className="w-11 h-11 object-contain" />

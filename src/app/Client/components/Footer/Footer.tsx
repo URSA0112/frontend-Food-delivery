@@ -1,6 +1,6 @@
 import About from "./About";
 import Bottom from "./Bottom";
-import Logo2 from "./Logo2";
+import Logo2 from "./LogoY";
 import Menu from "./Menu";
 import MovingWords from "./MovingWords";
 import Social from "./Social";

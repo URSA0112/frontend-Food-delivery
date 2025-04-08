@@ -1,4 +1,4 @@
-export default function Logo2() {
+export default function LogoY() {
     return (
         <div id="logo" className="block items-center ">
             <img src="logo.png" alt="Logo" className="w-10 h-10 object-contain justify-self-center" />

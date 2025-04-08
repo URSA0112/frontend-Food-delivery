@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Avatar, AvatarImage, AvatarFallback } from '../../../components/ui/avatar';
+import { Avatar, AvatarImage, AvatarFallback } from '../../../../components/ui/avatar';
 export default function User() {
 
     const [openLogin, setOpenLogin] = useState(false);

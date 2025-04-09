@@ -1,4 +1,3 @@
-'use client'
 
 import ClientPage from "./Client/ClientPage";
 

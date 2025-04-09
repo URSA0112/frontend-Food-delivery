@@ -1,4 +1,4 @@
-
+'use client'
 import {
     Sheet, SheetContent, SheetHeader, SheetTitle, SheetClose, SheetDescription, SheetFooter,
 } from '../../../../components/ui/sheet';

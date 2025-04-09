@@ -1,6 +1,6 @@
+'use client'
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef } from "react";
-
 
 export default function FeaturedItems() {
     const carouselRef = useRef<HTMLDivElement>(null);

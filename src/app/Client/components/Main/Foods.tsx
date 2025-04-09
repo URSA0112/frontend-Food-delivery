@@ -18,6 +18,7 @@ export default function Foods() {
             try {
               const response = await axios.get(`${BASE_URL}/food`);
             console.log(response);
+            console.log(BASE_URL);
 
             } catch (error) {
                 console.log(error);

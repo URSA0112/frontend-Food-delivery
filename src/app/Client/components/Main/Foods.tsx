@@ -22,6 +22,7 @@ export default function Foods() {
 
             } catch (error) {
                 console.log(error);
+                console.log(BASE_URL);
             }
           };
 

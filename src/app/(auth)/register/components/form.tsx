@@ -149,7 +149,7 @@ export default function RegisterForm() {
                 </form>
             </Form>
             <div className="flex gap-2 my-3 mx-1"> <p>Already have an account?</p>
-               <Link href="./Login"><p>Login</p></Link> 
+               <Link href="/login"><p>Login</p></Link> 
                 </div>
 
         </div>

@@ -154,7 +154,7 @@ export default function Login() {
                 </form>
             </Form>
             <div className="flex gap-2 my-3 mx-1"> <p>Don’t have an account?</p>
-                <Link href="./Register"><p>Sign up</p></Link>
+                <Link href="/register"><p>Sign up</p></Link>
             </div>
 
         </div>

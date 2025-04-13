@@ -16,6 +16,7 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import Link from "next/link";
 
 
 
@@ -145,12 +146,12 @@ export default function RegisterForm() {
                         </Button>
 
                     </>}
-
-
-
-
                 </form>
             </Form>
+            <div className="flex gap-2 my-3 mx-1"> <p>Already have an account?</p>
+               <Link href="./Login"><p>Login</p></Link> 
+                </div>
+
         </div>
     )
 }

@@ -1,5 +1,5 @@
-import RegisterForm from "./components/form/form";
-import RegisterPoster from "./components/poster/poster";
+import RegisterForm from "./components/form";
+import RegisterPoster from "./components/poster";
 
 
 

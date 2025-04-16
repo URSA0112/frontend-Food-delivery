@@ -5,6 +5,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { z } from "zod"
 import { Button } from "@/components/ui/button"
+import { toast } from "sonner"
 import {
     Form,
     FormControl,
@@ -18,10 +19,30 @@ import { Input } from "@/components/ui/input"
 import { Eye, EyeOff } from "lucide-react";
 import { handleNext } from "@/app/utils/functions/nextButtonFunc";
 import { formSchema } from "@/app/utils/validation/zodSchema";
+import { BASE_URL } from "@/app/constants";
+import axios from "axios";
+import { jwtDecode } from "jwt-decode";
+import { useRouter } from "next/navigation";
 
 export default function Login() {
+    const route = useRouter()
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const [emailConfirmed, setEmailConfirmed] = useState(false);
+    const [error, setError] = useState<string>("")
+    
+
+
+    type DecodedToken = {
+        userObj: {
+            id?: string,
+            email: string,
+            role: string,
+            createdAt?: string,
+            updatedAt?: string,
+        }
+        , iat?: number,
+        exp?: number,
+    };
 
     const formLogic = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -33,8 +54,31 @@ export default function Login() {
     })
 
     // Submit darah uyd : 
-    function onSubmit(values: z.infer<typeof formSchema>) {
-        console.log(values);
+
+    async function onSubmit(values: z.infer<typeof formSchema>) {
+        try {
+            //1.FETCH
+            const res = await axios.post(`${BASE_URL}/auth/login`, values);
+            const token = res.data.token
+            if (!token) {
+                setError("Server Error")
+            }
+            // 2. SAVE
+            localStorage.setItem("token", token);
+            setError("");
+            toast.success("✅ Successfully logged in");
+            // 3.DECODE & CHECK 
+            const userToken = localStorage.getItem("token") as string
+            const decodedToken = jwtDecode<DecodedToken>(userToken);
+            if (decodedToken.userObj.role === 'user'){
+                route.push('/Client')
+            }
+        }
+        catch (error: any) {
+            console.log(error.message);
+            const errorMessage = error?.response?.data?.message
+            setError(errorMessage)
+        }
     }
 
     return (
@@ -42,14 +86,7 @@ export default function Login() {
             <div className="w-150 max-w-[416px] h-auto p-6 mx-0">
                 {/* Title */}
                 <div className="flex items-center gap-4 mb-6">
-                    <button
-                        type="button"
-                        onClick={() => {
-                            setEmailConfirmed(false)
-                        }}
-                        className="min-w-8 min-h-8 bg-white rounded-sm text-black flex items-center justify-center">
-                        {`<`}
-                    </button>
+
                     <div>
                         <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">
                             Log in
@@ -118,21 +155,34 @@ export default function Login() {
                                         <FormControl>
                                             <Input type="password" {...field} placeholder="Re-enter password" />
                                         </FormControl>
+                                        <FormDescription className="text-red-400">{error ? error : ""}</FormDescription>
                                         <FormMessage />
                                     </FormItem>
                                 )}
                             />
-                            <Button type="submit" className="w-full">
-                                Submit
-                            </Button>
 
+                            <Link href={'/forgotPassword'} className="text-sm text-orange-100 flex">forgot your password?</Link>
+
+                            <div className="w-full flex gap-2">
+                                {emailConfirmed && <button
+                                    type="button"
+                                    onClick={() => {
+                                        setEmailConfirmed(false)
+                                    }}
+                                    className="w-[10%] min-w-8 min-h-8 bg-white rounded-sm text-black flex items-center justify-center">
+                                    {`<`}
+                                </button>}
+                                <Button type="submit" className="w-[88%]">
+                                    Submit
+                                </Button>
+                            </div>
                         </>}
                     </form>
                 </Form>
 
                 {/* footer line */}
                 <div className="flex gap-2 my-3 mx-1"> <p>Don’t have an account?</p>
-                    <Link href="/register"><p>Sign up</p></Link>
+                    <Link href="/register"><p className="text-rose-400">Sign up</p></Link>
                 </div>
                 {/* image 50% */}
             </div>

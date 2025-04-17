@@ -2,7 +2,7 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 
 import { Button } from "@/components/ui/button"
@@ -17,15 +17,19 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import Link from "next/link";
-import { handleNext } from "@/app/utils/functions/nextButtonFunc";
 import { formSchema } from "@/app/utils/validation/zodSchema";
 import axios from "axios";
 import { BASE_URL } from "@/app/constants";
+import { toast } from "sonner";
+import { jwtDecode } from "jwt-decode";
+import { useRouter } from "next/navigation";
+import { DecodedToken } from "../Type";
+import { handleNext } from "@/app/utils/functions/nextButtonFunc";
 
 
 
 export default function RegisterForm() {
-
+    const route = useRouter()
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const [emailConfirmed, setEmailConfirmed] = useState<boolean>(false);
     const [error, setError] = useState<string>("")
@@ -40,21 +44,18 @@ export default function RegisterForm() {
     })
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
-        console.log(values)
+
         try {
-            const res = await axios.post(`${BASE_URL}/auth/signUp`, values );
-            const data = res.data
-            console.log(data);
+            const res = await axios.post(`${BASE_URL}/auth/signUp`, values);
+            if (res.data.success) { toast.success("✅ Successfully registered"); }
+            route.push('/login')
         } catch (err: any) {
-            console.log(err.response.data);
-            
-            const message = err?.response?.data?.message || "Invalid email or password";
-            setError(message)
+            console.log(err);
+            const errorMessage = err?.response?.data?.message
+            setError(errorMessage)
         }
-
     }
-
-
+    
     return (
         <div className="flex w-full h-full items-center justify-center mx-10">
             <div className="w-150 max-w-[416px] h-auto p-6 mx-0">
@@ -126,8 +127,8 @@ export default function RegisterForm() {
                                     </FormItem>
                                 )}
                             />
-                                     
-                                     <Link href={'/forgotPassword'} className="text-sm text-orange-100 flex">forgot your password?</Link>
+
+                            <Link href={'/forgotPassword'} className="text-sm text-orange-100 flex">forgot your password?</Link>
 
                             <div className="w-full flex gap-2">
                                 {emailConfirmed && <button
@@ -156,5 +157,9 @@ export default function RegisterForm() {
                     src="/frame.png" alt="frame" /></div>
         </div>
     )
+}
+
+function useRoute() {
+    throw new Error("Function not implemented.");
 }
 

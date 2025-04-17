@@ -23,6 +23,7 @@ import { BASE_URL } from "@/app/constants";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import { useRouter } from "next/navigation";
+import { DecodedToken } from "../Type";
 
 export default function Login() {
     const route = useRouter()
@@ -30,20 +31,6 @@ export default function Login() {
     const [emailConfirmed, setEmailConfirmed] = useState(false);
     const [error, setError] = useState<string>("")
     
-
-
-    type DecodedToken = {
-        userObj: {
-            id?: string,
-            email: string,
-            role: string,
-            createdAt?: string,
-            updatedAt?: string,
-        }
-        , iat?: number,
-        exp?: number,
-    };
-
     const formLogic = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -68,8 +55,8 @@ export default function Login() {
             setError("");
             toast.success("✅ Successfully logged in");
             // 3.DECODE & CHECK 
-            const userToken = localStorage.getItem("token") as string
-            const decodedToken = jwtDecode<DecodedToken>(userToken);
+            const localToken = localStorage.getItem("token") as string
+            const decodedToken = jwtDecode<DecodedToken>(localToken);
             if (decodedToken.userObj.role === 'user'){
                 route.push('/Client')
             }

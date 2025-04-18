@@ -5,7 +5,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { z } from "zod"
 import { Button } from "@/components/ui/button"
-import { toast } from "sonner"
 import {
     Form,
     FormControl,
@@ -19,18 +18,14 @@ import { Input } from "@/components/ui/input"
 import { Eye, EyeOff } from "lucide-react";
 import { handleNext } from "@/app/utils/functions/nextButtonFunc";
 import { formSchema } from "@/app/utils/validation/zodSchema";
-import { BASE_URL } from "@/app/constants";
-import axios from "axios";
-import { jwtDecode } from "jwt-decode";
-import { useRouter } from "next/navigation";
-import { DecodedToken } from "../Type";
+import { inputValueType } from "@/providers/authType";
+import { useAuth } from "@/providers/authProvider";
 
 export default function Login() {
-    const route = useRouter()
+    const { login , error} = useAuth()
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const [emailConfirmed, setEmailConfirmed] = useState(false);
-    const [error, setError] = useState<string>("")
-    
+
     const formLogic = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -40,32 +35,8 @@ export default function Login() {
         },
     })
 
-    // Submit darah uyd : 
-
-    async function onSubmit(values: z.infer<typeof formSchema>) {
-        try {
-            //1.FETCH
-            const res = await axios.post(`${BASE_URL}/auth/login`, values);
-            const token = res.data.token
-            if (!token) {
-                setError("Server Error")
-            }
-            // 2. SAVE
-            localStorage.setItem("token", token);
-            setError("");
-            toast.success("✅ Successfully logged in");
-            // 3.DECODE & CHECK 
-            const localToken = localStorage.getItem("token") as string
-            const decodedToken = jwtDecode<DecodedToken>(localToken);
-            if (decodedToken.userObj.role === 'user'){
-                route.push('/Client')
-            }
-        }
-        catch (error: any) {
-            console.log(error.message);
-            const errorMessage = error?.response?.data?.message
-            setError(errorMessage)
-        }
+    const onSubmit = (values: inputValueType) => {
+        login(values)
     }
 
     return (
@@ -73,7 +44,6 @@ export default function Login() {
             <div className="w-150 max-w-[416px] h-auto p-6 mx-0">
                 {/* Title */}
                 <div className="flex items-center gap-4 mb-6">
-
                     <div>
                         <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">
                             Log in
@@ -179,3 +149,7 @@ export default function Login() {
         </div>
     )
 }
+function useAuthContext(): { login: any; } {
+    throw new Error("Function not implemented.");
+}
+

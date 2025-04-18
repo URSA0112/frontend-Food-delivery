@@ -149,7 +149,3 @@ export default function Login() {
         </div>
     )
 }
-function useAuthContext(): { login: any; } {
-    throw new Error("Function not implemented.");
-}
-

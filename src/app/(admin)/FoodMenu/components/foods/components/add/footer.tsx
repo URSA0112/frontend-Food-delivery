@@ -12,7 +12,10 @@ import { Button } from "@/components/ui/button";
 import { DialogClose } from "@radix-ui/react-dialog";
 export default function Footer() {
     return (
+
         <DialogFooter className="flex w-full pt-4 justify-between ">
+
+            {/* DELETE */}
             <Dialog>
                 <DialogTrigger asChild>
                     <Button variant="destructive">Delete</Button>
@@ -22,29 +25,29 @@ export default function Footer() {
                         <DialogTitle>Are you sure you want to delete?</DialogTitle>
                         <DialogDescription>This action cannot be undone.</DialogDescription>
                         <DialogFooter>
-                        <DialogClose>
-                        <Button variant="outline">Cancel</Button>
-                        </DialogClose>
+                            <DialogClose>
+                                <Button variant="outline">Cancel</Button>
+                            </DialogClose>
                             <Button variant="destructive">Confirm Delete</Button>
                         </DialogFooter>
                     </DialogHeader>
                 </DialogContent>
             </Dialog>
 
+            {/* SAVE */}
             <Dialog>
                 <DialogTrigger asChild>
                     <Button>Save Changes</Button>
                 </DialogTrigger>
                 <DialogContent>
-        
+
                     <DialogHeader>
                         <DialogTitle>Save Changes?</DialogTitle>
                         <DialogDescription>Are you ready to save this food item?</DialogDescription>
                         <DialogFooter>
-                        <DialogClose>
-                        <Button variant="outline">Cancel</Button>
-                        </DialogClose>
-
+                            <DialogClose>
+                                <Button variant="outline">Cancel</Button>
+                            </DialogClose>
                             <Button>Confirm Save</Button>
                         </DialogFooter>
                     </DialogHeader>

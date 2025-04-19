@@ -1,7 +1,8 @@
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { PropsWithChildren } from "react";
-import { AppSidebar } from "../Sidebar/sideBar";
+import { AppSidebar } from "./Sidebar/sideBar";
+
 
 export default function AdminLayout({ children }: PropsWithChildren) {
 

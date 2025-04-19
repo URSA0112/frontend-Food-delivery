@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ThemeProvider } from "./Client/components/Theme/ThemeProvider";
+import { ThemeProvider } from "./(client)/components/Theme/ThemeProvider";
 import { Toaster } from "@/components/ui/sonner"
 import { AuthProvider } from "@/providers/authProvider";
 
@@ -23,10 +23,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-             <AuthProvider>
-          {children}
-        </AuthProvider>
-          <Toaster position="top-center" richColors  />
+          <AuthProvider>
+            {children}
+          </AuthProvider>
+          <Toaster position="top-center" richColors />
         </ThemeProvider>
       </body>
     </html>

@@ -8,7 +8,7 @@ export default function Categories() {
       <CategoryHeader></CategoryHeader>
 
       <div className="flex gap-5">
-        <AddCategory className="w-35 "/>
+
         <CategoryList></CategoryList>
       </div>
     </div>

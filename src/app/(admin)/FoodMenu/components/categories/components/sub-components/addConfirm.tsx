@@ -11,30 +11,46 @@ import { DialogClose, DialogDescription } from "@radix-ui/react-dialog";
 import axios from "axios";
 import { useState } from "react";
 import { toast } from "sonner";
+import { set } from "zod";
 
 type ConfirmButtonProps = {
   newCategory: string | null;
   setOpen: (value: boolean) => void;
 };
 
-export default function ConfirmButton({
-  newCategory,
-  setOpen,
-}: ConfirmButtonProps) {
+export default function ConfirmButton({ newCategory, setOpen, }: ConfirmButtonProps) {
+
+
   const addCategory = async () => {
+
     try {
       const res = await axios.post(`${BASE_URL}/category`, {
         categoryName: newCategory,
       });
       toast.success(res.data.message);
       setOpen(false);
+
     } catch (err: any) {
+
       console.log(err.message);
     }
+
   };
 
   const checkCategoryName = () => {
-    alert("hey");
+    console.log(newCategory);
+    if (!newCategory?.trim()) {
+      toast.error(
+        "Category name can’t be Empty! , Please enter a category name.",
+        {
+          position: "top-center",
+          duration: 3500,
+          className: "text-base font-medium mt-15",
+        }
+      );
+      setOpen(false);
+      return;
+    }
   };
   return (
     <DialogFooter className="flex-row gap-5 justify-end-safe ">

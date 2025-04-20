@@ -6,7 +6,19 @@ import { jwtDecode } from "jwt-decode";
 import { useRouter } from "next/navigation";
 import { createContext, PropsWithChildren, useContext, useState } from "react";
 import { toast } from "sonner";
-import { AuthContextType, inputValueType } from "./authType";
+
+type inputValueType = {
+  email: string,
+  password: string,
+  confirmPassword: string,
+}
+
+type AuthContextType = {
+  user: string | null,
+  error: string | null,
+  login: (values: inputValueType) => void,
+  logout: () => void
+}
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 

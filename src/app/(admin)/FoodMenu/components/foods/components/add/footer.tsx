@@ -16,23 +16,9 @@ export default function Footer() {
         <DialogFooter className="flex w-full pt-4 justify-between ">
 
             {/* DELETE */}
-            <Dialog>
-                <DialogTrigger asChild>
-                    <Button variant="destructive">Delete</Button>
-                </DialogTrigger>
-                <DialogContent className="">
-                    <DialogHeader>
-                        <DialogTitle>Are you sure you want to delete?</DialogTitle>
-                        <DialogDescription>This action cannot be undone.</DialogDescription>
-                        <DialogFooter>
-                            <DialogClose>
-                                <Button variant="outline">Cancel</Button>
-                            </DialogClose>
-                            <Button variant="destructive">Confirm Delete</Button>
-                        </DialogFooter>
-                    </DialogHeader>
-                </DialogContent>
-            </Dialog>
+            <DialogClose>
+                    <Button variant="secondary">Cancel</Button>
+                    </DialogClose>
 
             {/* SAVE */}
             <Dialog>
@@ -46,7 +32,7 @@ export default function Footer() {
                         <DialogDescription>Are you ready to save this food item?</DialogDescription>
                         <DialogFooter>
                             <DialogClose>
-                                <Button variant="outline">Cancel</Button>
+                                <Button variant="outline">Back</Button>
                             </DialogClose>
                             <Button>Confirm Save</Button>
                         </DialogFooter>

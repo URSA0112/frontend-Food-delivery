@@ -14,7 +14,7 @@ export default function FoodCard() {
                 Fruit sauces and jellies, beverages, baked goods, cured meats, oils and margarines, cereals, dressings, snack foods, fruits and vegetables
             </CardDescription>
 
-          <EditFoodCard></EditFoodCard>
+          <div className=" absolute right-5 top-[35%] w-10 h-10"><EditFoodCard></EditFoodCard></div>
 
         </Card>
     )

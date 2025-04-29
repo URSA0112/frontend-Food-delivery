@@ -49,13 +49,15 @@ export default function RegisterForm() {
             const res = await axios.post(`${BASE_URL}/auth/signUp`, values);
             if (res.data.success) { toast.success("✅ Successfully registered"); }
             route.push('/login')
+            console.log(values);
+
         } catch (err: any) {
             console.log(err);
             const errorMessage = err?.response?.data?.message
             setError(errorMessage)
         }
     }
-    
+
     return (
         <div className="flex w-full h-full items-center justify-center mx-10">
             <div className="w-150 max-w-[416px] h-auto p-6 mx-0">
@@ -157,9 +159,5 @@ export default function RegisterForm() {
                     src="/frame.png" alt="frame" /></div>
         </div>
     )
-}
-
-function useRoute() {
-    throw new Error("Function not implemented.");
 }
 
